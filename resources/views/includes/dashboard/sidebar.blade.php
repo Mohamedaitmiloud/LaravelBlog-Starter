@@ -88,7 +88,7 @@
 
 
         <li class="nav-item">
-            <a href="#" class="nav-link">
+          <a href="{{route('tags.index')}}" class="nav-link @if(Route::currentRouteName()==='tags.index') active @endif">
                 <i class="fas fa-tags nav-icon"></i>
               <p>
                 Tags
