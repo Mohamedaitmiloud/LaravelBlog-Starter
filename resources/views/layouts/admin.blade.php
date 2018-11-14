@@ -11,7 +11,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini">
-    <div class="wrapper">
+    <div class="wrapper" id="app">
 
 
         @include('includes.dashboard.navbar')
@@ -30,6 +30,7 @@
 
     <!-- REQUIRED SCRIPTS -->
     <script src="{{asset('js/app.js')}}"></script>
+    @yield('js')
 </body>
 
 </html>

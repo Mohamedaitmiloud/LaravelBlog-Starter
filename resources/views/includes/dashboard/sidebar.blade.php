@@ -12,10 +12,10 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="{{asset('img/profile.png')}}" class="img-circle elevation-2" alt="User Image">
+        <img src="{{asset(Auth::user()->profile->avatar)}}" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block">Alexander Pierce</a>
+        <a href="#" class="d-block">{{Auth::user()->name}}</a>
       </div>
     </div>
 
@@ -50,7 +50,7 @@
         </li>
 
 
-        <li class="nav-item has-treeview menu-open">
+        <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-window-restore"></i>
             <p>
@@ -77,7 +77,7 @@
 
 
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{route('categories.index')}}" class="nav-link @if(Route::currentRouteName()==='categories.index') active @endif">
               <i class="fas fa-tag nav-icon"></i>
             <p>
               Categories

@@ -23,6 +23,10 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
         'as' => 'admin'
     ]);
 
+    //Categories routes
+    Route::resource('categories', 'CategoriesController');
+    
+
 });
 
 
