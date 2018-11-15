@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\softDeletes;
 
 class Post extends Model
 {
+
+    use SoftDeletes;
+
     // The attributes that are mass assignable.
     protected $fillable = ['title','featured','content','slug','user_id','category_id'];
 
@@ -23,5 +26,10 @@ class Post extends Model
     }
 
     protected $dates = ['deleted_at'];
+
+
+    public function getFeaturedAttribute($featured){
+        return asset($featured);
+    }
 
 }

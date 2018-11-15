@@ -23,10 +23,15 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
         'as' => 'admin'
     ]);
 
-    //Categories routes
+    //Categories routs
     Route::resource('categories', 'CategoriesController');
-    //tags routes 
+    //tags routs 
     Route::resource('tags','TagsController');
+    //posts routs
+    Route::resource('posts','PostsController');
+    Route::get('/trashed','PostsController@trashed')->name('posts.trashed');
+    Route::get('/post/{id}/restore','PostsController@restore')->name('posts.restore');
+    Route::get('/post/{id}/delete','PostsController@delete')->name('posts.delete');
     
 
 });

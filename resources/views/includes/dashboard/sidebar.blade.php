@@ -60,14 +60,14 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="#" class="nav-link">
+                <a href="{{route('posts.index')}}" class="nav-link @if(Route::currentRouteName()==='posts.index') active @endif">
                   
                 <i class="fas fa-window-minimize nav-icon fa-sm"></i>
                 <p>Published posts</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+                <a href="{{route('posts.trashed')}}" class="nav-link @if(Route::currentRouteName()==='posts.trashed') active @endif">
                 <i class="fas fa-window-minimize nav-icon fa-sm"></i>
                 <p>Trashed posts</p>
               </a>
