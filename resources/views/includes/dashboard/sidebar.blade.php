@@ -100,7 +100,7 @@
           <li class="nav-header">ADMIN</li>
 
           <li class="nav-item">
-              <a href="#" class="nav-link">
+            <a href="{{route('users.index')}}" class="nav-link @if(Route::currentRouteName()==='users.index') active @endif">
                   <i class="fas fa-users nav-icon"></i>
                 <p>
                   Users
