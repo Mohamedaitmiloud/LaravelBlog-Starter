@@ -38,6 +38,10 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
     Route::resource('users','UsersController');
     Route::get('/user/{id}/makeAdmin','UsersController@makeAdmin')->name('users.makeAdmin');
     Route::get('/user/{id}/removeAdmin','UsersController@removeAdmin')->name('users.removeAdmin');
+
+    //profile routes
+
+    Route::resource('profile','ProfileController');
     
 
 });

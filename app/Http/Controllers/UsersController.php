@@ -95,7 +95,22 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        if($validator->fails()){
+            Session::flash('error',$validator->messages()->all());
+            return redirect()->back()->withInput();
+        }
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        Session::flash('success',$user->name.' Updated successfully');
+        return redirect()->back();
     }
 
     /**
