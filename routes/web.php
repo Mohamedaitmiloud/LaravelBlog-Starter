@@ -40,8 +40,11 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
     Route::get('/user/{id}/removeAdmin','UsersController@removeAdmin')->name('users.removeAdmin');
 
     //profile routes
-
     Route::resource('profile','ProfileController');
+
+    //Blog Settings routs
+
+    Route::resource('settings','SettingsController')->only('index','update');
     
 
 });
