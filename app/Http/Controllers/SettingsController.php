@@ -9,6 +9,12 @@ use Session;
 
 class SettingsController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('admin');
+    }
+
+
     public function index(){
         return view('dashboard.settings.index',['settings'=>Setting::first()]);
     }
