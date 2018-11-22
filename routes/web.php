@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
@@ -45,11 +45,19 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
     //Blog Settings routs
 
     Route::resource('settings','SettingsController')->only('index','update');
+
+
+
     
 
 });
 
+    //frontend routs
 
+    Route::get('/',[
+        'uses'=>'FrontEndController@index',
+        'as'=>'blog.index'
+    ]);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

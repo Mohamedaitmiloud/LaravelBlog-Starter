@@ -37,7 +37,9 @@
          
           <div class="media">
             <div class="media-body">
-                  logout
+                <i class="fas fa-sign-out-alt"></i>
+                logout
+                  
             </div>
           </div>
      
