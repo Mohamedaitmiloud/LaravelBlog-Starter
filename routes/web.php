@@ -46,6 +46,14 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
 
     Route::resource('settings','SettingsController')->only('index','update');
 
+    //todo routs
+    
+    Route::group(['prefix' => 'todos'], function() {
+        Route::resource('/','TodoController')->only('store','destroy');
+        Route::get('getTodos','TodoController@getTodos');
+        Route::put('{id}/markDone','TodoController@markDone');
+    });
+    
 
 
     
