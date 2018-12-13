@@ -19,4 +19,22 @@ class FrontEndController extends Controller
             'categories'=>$categories
         ]);
     }
+    public function getPost($slug){
+        $post = Post::where('slug','=',$slug)->first();
+        $nextPost = Post::where('id','>',$post->id)->min('id');
+        $prevPost = Post::where('id','<',$post->id)->max('id');
+        $categories = Category::all();
+        $tags = Tag::all();
+        $settings = Setting::first();
+        return view('frontend.single',[
+            'post'=>$post,
+            'nextPost'=>Post::find($nextPost),
+            'prevPost'=>Post::find($prevPost),
+            'settings' =>$settings,
+            'categories'=>$categories
+        ]);
+    }
+
+
+
 }

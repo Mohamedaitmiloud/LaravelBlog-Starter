@@ -66,6 +66,14 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
         'uses'=>'FrontEndController@index',
         'as'=>'blog.index'
     ]);
+    Route::get('/post/{slug}',[
+        'uses'=>'FrontEndController@getPost',
+        'as'=>'post.single'
+    ]);
+
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
